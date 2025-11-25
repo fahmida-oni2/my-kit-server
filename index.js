@@ -1,6 +1,6 @@
 const express = require('express')
 const cors = require("cors");
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
 require("dotenv").config();
 const app = express()
 const port = 5000
@@ -29,6 +29,16 @@ async function run() {
       const result = await kitCollection.find().toArray();
       res.send(result);
     });
+    app.get("/all-kits/:id", async (req, res) => {
+    const { id } = req.params;
+    const objectId =  new ObjectId(id)
+    const result = await kitCollection.findOne({ _id: objectId }); 
+
+    res.send({
+      success: true, 
+      result,         
+    });
+});
 
 
 
