@@ -37,6 +37,15 @@ async function run() {
        insertedId: result.insertedId,
       });
     });
+
+      app.get("/available-kits", async (req, res) => {
+  const cursor = kitCollection
+    .find()
+    .sort({ stock_status: 1 }) 
+    .limit(6);
+  const result = await cursor.toArray();
+  res.send(result);
+});
     app.get("/all-kits/:kitId", async (req, res) => {
     const { kitId } = req.params;
     const objectId =  new ObjectId(kitId)
