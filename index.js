@@ -29,9 +29,9 @@ async function run() {
       const result = await kitCollection.find().toArray();
       res.send(result);
     });
-    app.get("/all-kits/:id", async (req, res) => {
-    const { id } = req.params;
-    const objectId =  new ObjectId(id)
+    app.get("/all-kits/:kitId", async (req, res) => {
+    const { kitId } = req.params;
+    const objectId =  new ObjectId(kitId)
     const result = await kitCollection.findOne({ _id: objectId }); 
 
     res.send({
