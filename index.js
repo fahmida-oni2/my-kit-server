@@ -54,6 +54,31 @@ async function run() {
       const result = await cursor.toArray();
       res.send(result);
     });
+     app.put("/all-kits/:kitId", async (req, res) => {
+      const {kitId} = req.params;
+      const data = req.body;
+      const objectId  = new ObjectId(kitId);
+      delete data._id;
+
+      const filter = { _id: objectId };
+      const update = {
+        $set: data,
+      };
+      const result = await kitCollection.updateOne(filter, update);
+
+      res.send(result);
+    });
+
+      app.delete("/all-kits/:kitId", async (req, res) => {
+      const { kitId } = req.params;
+      const objectId = new ObjectId(kitId);
+
+      const result = await kitCollection.deleteOne({
+        _id: objectId,
+      });
+
+      res.send(result);
+    });
 
 
 
