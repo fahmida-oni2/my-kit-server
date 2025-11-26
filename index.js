@@ -29,6 +29,14 @@ async function run() {
       const result = await kitCollection.find().toArray();
       res.send(result);
     });
+      app.post("/all-kits", async (req, res) => {
+      const data = req.body;
+      const result = await kitCollection.insertOne(data);
+      res.send({
+        success: true,
+       insertedId: result.insertedId,
+      });
+    });
     app.get("/all-kits/:kitId", async (req, res) => {
     const { kitId } = req.params;
     const objectId =  new ObjectId(kitId)
@@ -38,6 +46,7 @@ async function run() {
       success: true, 
       result,         
     });
+    
 });
 
 
