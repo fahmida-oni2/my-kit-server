@@ -48,6 +48,12 @@ async function run() {
     });
     
 });
+ app.get("/my-kit", async (req, res) => {
+      const email = req.query.email;
+      const cursor = kitCollection.find({ creator_email: email });
+      const result = await cursor.toArray();
+      res.send(result);
+    });
 
 
 
