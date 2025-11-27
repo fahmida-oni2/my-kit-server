@@ -9,3 +9,8 @@ The Live link of the project is:<br>
 **Client Link:** https://terraloom-kit-app.vercel.app/all-kits
 <br>
 **Server link:** https://terraloom-kit-api-server.vercel.app/
+
+**Used Technology**:
+1. Node.js
+2. Express.js
+3. MongoDB
