@@ -6,7 +6,7 @@ This is the server side of TerraLoom.TerraLoom is a platform where users can dis
 The Live link of the project is:<br>
 
 
-**Client Link:** https://terraloom-kit-app.vercel.app/all-kits
+**Client Link:** https://terraloom-kit-app.vercel.app/
 <br>
 **Server link:** https://terraloom-kit-api-server.vercel.app/
 
